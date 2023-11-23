@@ -1,3 +1,4 @@
+# Aquí se define la APIKEY y la lista de monedas disponibles
 APIKEY = 'USE YOUR APIKEY'
 
 MONEDAS = ["EUR - Euro",

@@ -1,35 +1,27 @@
-"""
-Modelo <==> Controlador <==> Vista
-
-Modelo <////////> Vista  NUNCA hay comunicación entre Modelo y Vista
-
-La vista interactúa con el usuario:
-1. entrada de datos
-2. muestra datos
-TODO: Clase CriptoView
-"""
-
+# Interacción con el usuario a través de la consola o la interfaz gráfica
 from tkinter import StringVar, ttk
 
 from . import MONEDAS
 
-
+# Vista para la aplicación de consola
 class CriptoView:
-
     def pedir_monedas(self):
+        # Solicitar al usuario las monedas a intercambiar
         origen = input('¿Qué moneda quieres cambiar? ')
         destino = input('¿Qué moneda deseas obtener? ')
 
         return (origen, destino)
 
     def mostrar_cambio(self, origen, destino, cambio):
+        # Mostrar el resultado del cambio al usuario
         print(f'Un {origen} vale lo mismo que {cambio:,.2f} {destino}')
 
     def quieres_seguir(self):
+        # Preguntar al usuario si desea continuar consultando cambios
         seguir = input('¿Quieres consultar de nuevo? (S/N) ')
         return seguir
 
-
+# Vista para la interfaz gráfica de la aplicación
 class CriptoViewTk(ttk.Frame):
     def __init__(self, padre, accion):
         super().__init__(padre, width=400, height=400, padding=20)

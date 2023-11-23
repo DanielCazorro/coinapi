@@ -1,23 +1,18 @@
-"""
-Modelo <==> Controlador <==> Vista
-
-El controlador "dirige" el flujo de la app
-TODO: Clase CriptoController
-"""
-
+# Controladores que interactúan con el modelo y la vista
 from tkinter import *
 
 from .models import CriptoModel
 from .views import CriptoView, CriptoViewTk
 
 
+# Controlador principal para la aplicación de consola
 class CriptoController:
-
     def __init__(self):
         self.modelo = CriptoModel()
         self.vista = CriptoView()
 
     def consultar(self):
+        # Bucle para realizar consultas de cambio de moneda
         seguir = 's'
         while seguir.lower() == 's':
             ori, des = self.vista.pedir_monedas()
@@ -33,6 +28,8 @@ class CriptoController:
                 seguir = self.vista.quieres_seguir()
 
 
+
+# Controlador para la interfaz gráfica de la aplicación
 class CriptoControllerTk(Tk):
     def __init__(self):
         super().__init__()
